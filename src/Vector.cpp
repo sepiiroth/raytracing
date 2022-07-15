@@ -1,4 +1,4 @@
-#include "vector.h"
+#include "../include/Vector.h"
 #include<iostream>
 #include<math.h>
 #include<assert.h>
@@ -81,6 +81,25 @@ Vector &Vector::operator=(const Vector &vec) {
     this->m_z = vec.getZ();
     return *this;
 }
+
+float &Vector::operator[](int value) {
+    switch(value) {
+        case '0':
+            return this->m_x;
+            break;
+        case '1':
+            return this->m_y;
+            break;
+        case '2':
+            return this->m_z;
+            break;
+    }
+}
+
+Vector Vector::operator-() {
+    return Vector(-(this->m_x), -(this->m_y), -(this->m_z));
+}
+
 
 float Vector::dot(const Vector &vec) {
     return this->m_x * vec.getX() + vec.getY() * this->m_y + vec.getZ() * this->m_z;

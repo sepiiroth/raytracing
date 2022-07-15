@@ -1,4 +1,4 @@
-#include "Point.h"
+#include "../include/Point.h"
 #include<iostream>
 #include<math.h>
 #include<assert.h>
@@ -88,6 +88,29 @@ Point &Point::operator=(const Point &p) {
     this->m_z = p.getZ();
     return *this;
 }
+
+float &Point::operator[](int value) {
+    switch(value) {
+        case '0':
+            return this->m_x;
+            break;
+        case '1':
+            return this->m_y;
+            break;
+        case '2':
+            return this->m_z;
+            break;
+    }
+}
+
+Point Point::operator-() {
+    return Point(-(this->m_x), -(this->m_y), -(this->m_z));
+}
+
+float Point::dot(const Point &p) {
+    return this->m_x * p.getX() + p.getY() * this->m_y + p.getZ() * this->m_z;
+}
+
 
 void Point::display() {
     cout<<this->m_x<<" "<<this->m_y<<" "<<this->m_z<<endl;

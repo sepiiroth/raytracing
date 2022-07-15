@@ -35,7 +35,7 @@ bool draw(char* outputName) {
             img << ir << ' ' << ig << ' ' << ib << '\n';
         }
     }
-    cerr << "\nImage prête!\n";
+    cerr << "\nImage prete!\n";
 }
 
 int main(int argc, char* argv[]) {

@@ -22,6 +22,9 @@ class Point {
         Point operator/(float value);
         Point &operator/=(float value);
         Point &operator=(const Point &p);
+        float &operator[](int value);
+        Point operator-();
+        float dot(const Point &p);
         void display();
 };
 
