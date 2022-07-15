@@ -19,3 +19,69 @@
 
 1657829975 c:\users\raf\desktop\ecole\c++\include\point.h
 
+1657893085 source:g:\cours\cpp\raytracing\main.cpp
+	<iostream>
+	<fstream>
+	"./include/Image.h"
+
+1657891657 source:g:\cours\cpp\raytracing\src\point.cpp
+	"../include/Point.h"
+	<iostream>
+	<math.h>
+	<assert.h>
+
+1657891664 source:g:\cours\cpp\raytracing\src\ray.cpp
+	"../include/Ray.h"
+	<iostream>
+	<math.h>
+
+1657891670 source:g:\cours\cpp\raytracing\src\vector.cpp
+	"../include/Vector.h"
+	<iostream>
+	<math.h>
+	<assert.h>
+
+1657891279 g:\cours\cpp\raytracing\include\point.h
+
+1657891279 g:\cours\cpp\raytracing\include\ray.h
+	"Point.h"
+	"Vector.h"
+
+1657891279 g:\cours\cpp\raytracing\include\vector.h
+
+1657893355 g:\cours\cpp\raytracing\include\image.h
+	<vector>
+	<string>
+
+1644861762 g:\cours\cpp\raytracing\lib\stb\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1644861762 g:\cours\cpp\raytracing\lib\stb\stb_image_write.h
+	<stdlib.h>
+	<stdio.h>
+	<stdarg.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<assert.h>
+
+1657893093 source:g:\cours\cpp\raytracing\src\image.cpp
+	"../include/Image.h"
+	<vector>
+	<string>
+	<bits/stdc++.h>
+

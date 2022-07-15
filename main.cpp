@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+#include "src/Image.cpp"
+
 using namespace std;
 
 int image_width;
@@ -16,10 +19,11 @@ bool init(char* inputName) {
    return true;
  }
 
-bool draw(char* outputName) {
+bool draw(const char* outputName) {
     //Render
-    ofstream img(outputName);
-    img << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+    //ofstream img(outputName);
+    Image im = Image(image_height, image_width);
+    //img << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
     for (int j = image_height-1; j >= 0; --j) {
         cerr << "\rLignes de balayage restantes: " << j << ' ' << flush;
@@ -32,9 +36,15 @@ bool draw(char* outputName) {
             int ig = static_cast<int>(255.999 * g);
             int ib = static_cast<int>(255.999 * b);
 
-            img << ir << ' ' << ig << ' ' << ib << '\n';
+            im(i,j,0) = ir;
+            im(i,j,1) = ig;
+            im(i,j,2) = ib;
+            im(i,j,3) = 255;
+            //img << ir << ' ' << ig << ' ' << ib << '\n';
         }
     }
+
+    im.save(outputName);
     cerr << "\nImage prête!\n";
 }
 
