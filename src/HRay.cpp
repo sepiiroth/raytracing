@@ -1,4 +1,4 @@
-#include "HRay.h"
+#include "../include/HRay.h"
 #include<iostream>
 #include<math.h>
 

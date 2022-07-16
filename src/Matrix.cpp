@@ -1,4 +1,6 @@
-#include "Matrix.h"
+#include "../include/Matrix.h"
+#include "HPoint.cpp"
+#include "HVector.cpp"
 
 #define EPS 1e-10
 

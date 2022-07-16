@@ -1,17 +1,27 @@
-#include "HPoint.h"
-#include<iostream>
-#include<math.h>
-#include<assert.h>
+#include "../include/HPoint.h"
+
 
 using namespace std;
 
-HPoint::HPoint() {}
+HPoint::HPoint() {
+    this->m_x = 0;
+    this->m_y = 0;
+    this->m_z = 0;
+    this->m_w = 1;
+}
 
 HPoint::HPoint(float x, float y, float z, float w) {
     this->m_x = x;
     this->m_y = y;
     this->m_z = z;
     this->m_w = w;
+}
+
+HPoint::HPoint(const Point& p) {
+    this->m_x = p->getX();
+    this->m_y = p->getY();
+    this->m_z = p->getZ();
+    this->m_w = 1;
 }
 
 float HPoint::getX() const {

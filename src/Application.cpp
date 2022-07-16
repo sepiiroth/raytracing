@@ -72,12 +72,7 @@ void Application::prepareScene()
 	SDL_SetRenderDrawColor(this->renderer, 96, 128, 255, 255);
 	SDL_RenderClear(this->renderer);
 	SDL_SetRenderDrawColor(this->renderer, 255, 128, 96, 255);
-	SDL_Rect r;
-	r.x = 10;
-	r.y = 10;
-	r.w = 100;
-	r.h = 100;
-	SDL_RenderDrawRect(this->renderer, &r);
+
 }
 
 void Application::presentScene()

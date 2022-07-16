@@ -3,6 +3,7 @@
 #include <string>
 #include "src/Image.cpp"
 #include "src/Application.cpp"
+#include "src/Scene.cpp"
 #include <SDL2/SDL.h>
 
 using namespace std;
@@ -76,6 +77,9 @@ int main(int argc, char* argv[]) {
 
 
     app.initSDL();
+
+    Scene s = Scene();
+    cout << s.nbLights() << " " << s.objects.size() << endl;
 
 	//atexit(cleanup);
 

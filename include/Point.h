@@ -25,6 +25,7 @@ class Point {
         float &operator[](int value);
         Point operator-();
         float dot(const Point &p);
+        float distanceTo(const Point& B);
         void display();
 };
 

@@ -111,6 +111,11 @@ float Point::dot(const Point &p) {
     return this->m_x * p.getX() + p.getY() * this->m_y + p.getZ() * this->m_z;
 }
 
+float Point::distanceTo(const Point& B)
+{
+    return sqrt(pow(B.getX() - this->getX(), 2) + pow(B.getY() - this->getY(), 2));
+}
+
 
 void Point::display() {
     cout<<this->m_x<<" "<<this->m_y<<" "<<this->m_z<<endl;

@@ -82,18 +82,36 @@ Vector &Vector::operator=(const Vector &vec) {
     return *this;
 }
 
-float &Vector::operator[](int value) {
+float Vector::operator[](int value) const{
+    float temp = 0;
     switch(value) {
         case '0':
-            return this->m_x;
+            temp = this->m_x;
             break;
         case '1':
-            return this->m_y;
+            temp = this->m_y;
             break;
         case '2':
-            return this->m_z;
+            temp = this->m_z;
             break;
     }
+    return temp;
+}
+
+float& Vector::operator[](int value) {
+    float temp = 0;
+    switch(value) {
+        case '0':
+            temp = this->m_x;
+            break;
+        case '1':
+            temp = this->m_y;
+            break;
+        case '2':
+            temp = this->m_z;
+            break;
+    }
+    return temp;
 }
 
 Vector Vector::operator-() {

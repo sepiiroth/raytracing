@@ -1,4 +1,4 @@
-#include "Light.h"
+#include "../include/Light.h"
 
 Ray Light::getRayToLight(const Point& p)const {
 }
