@@ -90,6 +90,54 @@ Matrix& Matrix::operator*=(const Matrix& m) {
     return (*this = temp);
 }
 
+Matrix& Matrix::operator*(HPoint& point) {
+    Matrix temp(rows, 4);
+    for(int i = 0; i < temp.rows; ++i) {
+        for (int j = 0; j < temp.cols; ++j) {
+            for (int k = 0; k < cols; ++k) {
+                temp.p[i][j] += (this->p[i][k] * point[k]);
+            }
+        }
+    }
+    return (*this = temp);
+}
+
+Matrix& Matrix::operator*=(HPoint& point) {
+    Matrix temp(rows, 4);
+    for(int i = 0; i < temp.rows; ++i) {
+        for (int j = 0; j < temp.cols; ++j) {
+            for (int k = 0; k < cols; ++k) {
+                temp.p[i][j] += (this->p[i][k] * point[k]);
+            }
+        }
+    }
+    return (*this = temp);
+}
+
+Matrix& Matrix::operator*(HVector& v) {
+    Matrix temp(rows, 4);
+    for(int i = 0; i < temp.rows; ++i) {
+        for (int j = 0; j < temp.cols; ++j) {
+            for (int k = 0; k < cols; ++k) {
+                temp.p[i][j] += (this->p[i][k] * v[k]);
+            }
+        }
+    }
+    return (*this = temp);
+}
+
+Matrix& Matrix::operator*=(HVector& v) {
+    Matrix temp(rows, 4);
+    for(int i = 0; i < temp.rows; ++i) {
+        for (int j = 0; j < temp.cols; ++j) {
+            for (int k = 0; k < cols; ++k) {
+                temp.p[i][j] += (this->p[i][k] * v[k]);
+            }
+        }
+    }
+    return (*this = temp);
+}
+
 void Matrix::swapRows(int r1, int r2) {
     float *temp = p[r1];
     p[r1] = p[r2];

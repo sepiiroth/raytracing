@@ -12,7 +12,7 @@ class Point {
         float getZ() const;
         void setX(float x);
         void setY(float y);
-        void setZ(float y);
+        void setZ(float z);
         Point operator+(const Point &p);
         Point &operator+=(const Point &p);
         Point operator-(const Point &p);

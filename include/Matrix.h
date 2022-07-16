@@ -1,6 +1,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-
+#include "HVector.h"
+#include "HPoint.h"
 
 class Matrix
 {
@@ -20,6 +21,10 @@ class Matrix
 
         Matrix& operator*(const Matrix& m);
         Matrix& operator*=(const Matrix& m);
+        Matrix& operator*(HPoint& p);
+        Matrix& operator*=(HPoint& p);
+        Matrix& operator*(HVector& v);
+        Matrix& operator*=(HVector& v);
 
         void swapRows(int r1, int r2);
         static Matrix createIdentity(int size);
