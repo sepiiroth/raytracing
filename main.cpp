@@ -1,7 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "src/Image.cpp"
+#include "include/Image.h"
+#include "include/Application.h"
+#include <SDL2/SDL.h>
 
 using namespace std;
 
@@ -49,7 +51,7 @@ bool draw(const char* outputName) {
 }
 
 int main(int argc, char* argv[]) {
-    if(argc < 3) {
+    /*if(argc < 3) {
         printf("Pas assez d'argument!");
         return -1;
     }
@@ -58,7 +60,36 @@ int main(int argc, char* argv[]) {
     }
     if(!draw(argv[2])) {
        return -1;
+    }*/
+
+    init("scene.txt");
+
+    if ( SDL_Init(SDL_INIT_VIDEO) < 0 )
+    {
+        fprintf(stderr, "Impossible d'initialiser SDL: %sn", SDL_GetError());
+        exit(1);
     }
+
+    Application app = Application(image_width, image_height);
+
+
+    app.initSDL();
+
+	//atexit(cleanup);
+
+	while (1)
+	{
+		app.prepareScene();
+
+		app.doInput();
+
+		app.presentScene();
+
+		SDL_Delay(16);
+	}
+
+
+    atexit(SDL_Quit);
     /*char* arg2(argv[2]);
     string runImage = "open ";
     runImage += arg2;
