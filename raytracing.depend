@@ -19,12 +19,12 @@
 
 1657829975 c:\users\raf\desktop\ecole\c++\include\point.h
 
-1657964498 source:g:\cours\cpp\raytracing\main.cpp
+1657966285 source:g:\cours\cpp\raytracing\main.cpp
 	<iostream>
 	<fstream>
 	<string>
-	"include/Image.h"
-	"include/Application.h"
+	"src/Image.cpp"
+	"src/Application.cpp"
 	<SDL2/SDL.h>
 
 1657891657 source:g:\cours\cpp\raytracing\src\point.cpp
@@ -440,10 +440,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1657964621 source:g:\cours\cpp\raytracing\src\application.cpp
-	"Application.h"
+1657966036 source:g:\cours\cpp\raytracing\src\application.cpp
+	"../include/Application.h"
 
 1657964212 g:\cours\cpp\raytracing\include\application.h
 	<SDL2/SDL.h>
 	<iostream>
+
+1657966036 g:\cours\cpp\raytracing\src\application.cpp
+	"../include/Application.h"
 

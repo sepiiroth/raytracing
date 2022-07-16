@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "include/Image.h"
-#include "include/Application.h"
+#include "src/Image.cpp"
+#include "src/Application.cpp"
 #include <SDL2/SDL.h>
 
 using namespace std;
@@ -10,7 +10,7 @@ using namespace std;
 int image_width;
 int image_height;
 
-bool init(char* inputName) {
+bool init(const char* inputName) {
     //Image
     ifstream sceneFile(inputName);
     if (!sceneFile) {
@@ -48,22 +48,24 @@ bool draw(const char* outputName) {
 
     im.save(outputName);
     cerr << "\nImage prête!\n";
+    return true;
 }
 
 int main(int argc, char* argv[]) {
-    /*if(argc < 3) {
+    if(argc < 3) {
         printf("Pas assez d'argument!");
         return -1;
     }
     if(!init(argv[1])) {
         return -1;
     }
+    cerr << "Test";
     if(!draw(argv[2])) {
        return -1;
-    }*/
+    }
 
-    init("scene.txt");
-
+    //init("scene.txt");
+    cout << "Test";
     if ( SDL_Init(SDL_INIT_VIDEO) < 0 )
     {
         fprintf(stderr, "Impossible d'initialiser SDL: %sn", SDL_GetError());
@@ -90,10 +92,6 @@ int main(int argc, char* argv[]) {
 
 
     atexit(SDL_Quit);
-    /*char* arg2(argv[2]);
-    string runImage = "open ";
-    runImage += arg2;
-    printf("%s ", runImage);*/
-    //system(arg2);
+
     return 0;
 }
