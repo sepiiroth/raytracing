@@ -1,11 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+#include "src/Image.cpp"
+#include "src/Application.cpp"
+#include <SDL2/SDL.h>
+
 using namespace std;
 
 int image_width;
 int image_height;
 
-bool init(char* inputName) {
+bool init(const char* inputName) {
     //Image
     ifstream sceneFile(inputName);
     if (!sceneFile) {
@@ -16,10 +21,11 @@ bool init(char* inputName) {
    return true;
  }
 
-bool draw(char* outputName) {
+bool draw(const char* outputName) {
     //Render
-    ofstream img(outputName);
-    img << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+    //ofstream img(outputName);
+    Image im = Image(image_height, image_width);
+    //img << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
     for (int j = image_height-1; j >= 0; --j) {
         cerr << "\rLignes de balayage restantes: " << j << ' ' << flush;
@@ -32,10 +38,17 @@ bool draw(char* outputName) {
             int ig = static_cast<int>(255.999 * g);
             int ib = static_cast<int>(255.999 * b);
 
-            img << ir << ' ' << ig << ' ' << ib << '\n';
+            im(i,j,0) = ir;
+            im(i,j,1) = ig;
+            im(i,j,2) = ib;
+            im(i,j,3) = 255;
+            //img << ir << ' ' << ig << ' ' << ib << '\n';
         }
     }
-    cerr << "\nImage prete!\n";
+
+    im.save(outputName);
+    cerr << "\nImage pr�te!\n";
+    return true;
 }
 
 int main(int argc, char* argv[]) {
@@ -46,13 +59,39 @@ int main(int argc, char* argv[]) {
     if(!init(argv[1])) {
         return -1;
     }
+    cerr << "Test";
     if(!draw(argv[2])) {
        return -1;
     }
-    /*char* arg2(argv[2]);
-    string runImage = "open ";
-    runImage += arg2;
-    printf("%s ", runImage);*/
-    //system(arg2);
+
+    //init("scene.txt");
+    cout << "Test";
+    if ( SDL_Init(SDL_INIT_VIDEO) < 0 )
+    {
+        fprintf(stderr, "Impossible d'initialiser SDL: %sn", SDL_GetError());
+        exit(1);
+    }
+
+    Application app = Application(image_width, image_height);
+
+
+    app.initSDL();
+
+	//atexit(cleanup);
+
+	while (1)
+	{
+		app.prepareScene();
+
+		app.doInput();
+
+		app.presentScene();
+
+		SDL_Delay(16);
+	}
+
+
+    atexit(SDL_Quit);
+
     return 0;
 }
